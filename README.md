@@ -11,3 +11,5 @@ Also I will use API called MYSQLI.
 - I connect with database in another way by using array. It was really great experiences.
 
 For my blog post I created table posts in database. And for now I just insert data directly in database and just call that data. I also used while loop so if just insert new data in table post then it will create new blog or post in my website.
+
+Now it's time to serach somethings in search table. So, I can do here is make a form so it can feed to database.
