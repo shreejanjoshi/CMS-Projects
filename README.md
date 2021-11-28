@@ -25,6 +25,7 @@ $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%'";
 So, This query will basily look for the specific tag that we put in our database. 
 
 ### So What Going On
+<hr>
 
 Today is 28/11/2021 and I finally complete the index.php of home page. Now its time start with Admin section. This is start of another hard challenge but I know it will help in long run. So, let's this party started.
 
