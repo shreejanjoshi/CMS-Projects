@@ -3,6 +3,7 @@
 In this project I'm trying to make CMS of my own. The main reason I'm doing this project is to grow my own knowledge in PHP, building something from streatch will help me in long run.
 
 ### So What Going On
+<hr>
 
 What I first did is added template from wrapbootstrap for cms projects. I don't want to spend my time on buiding degine in HTML, CSS and JAVASCRIPT so I basily skip that.
 After that I made database in phpmyadmin with name CMS and made table category inside CMS.
@@ -14,7 +15,8 @@ For my blog post I created table posts in database. And for now I just insert da
 
 Now it's time to serach somethings in search table. So, I can do here is make a form so it can feed to database.
 
-## COOL
+#### COOL
+<hr>
 
 So while duing this project I found query that will help to search. 
 
