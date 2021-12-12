@@ -49,49 +49,20 @@
                                 <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
                             </div>
                         </form>
-                        <!-- form to edit -->
-                        <form action="" method="POST">
-                            <div class="form-group">
-                                <label for="cat-title">Edit Category</label>
-                                <?php
-                                // edit query
 
-                                if (isset($_GET['edit'])) {
+                        <?php
+                        //edit cat
+                            if(isset($_GET['edit'])){
+                                $editCatId = $_GET['edit'];
 
-                                    $editCatId = $_GET['edit'];
+                                // include "includes/editCategories.php";
 
-                                    $query = "SELECT * FROM categories WHERE cat_id = $editCatId ";
-                                    $selectAdminCategoriesEditId = mysqli_query($connection, $query);
-
-                                    if (!$selectAdminCategoriesEditId) {
-                                        die("Query Error " . mysqli_error($connection));
-                                    }
-
-                                    while ($row = mysqli_fetch_assoc($selectAdminCategoriesEditId)) {
-                                        // $catId = $row['cat_id'];
-                                        $catTitle = $row['cat_title'];
-                                ?>
-                                        <input value="
-                                        <?php
-                                        echo $catTitle;
-                                        // if(isset($catTitle)){
-                                        //     echo $catTitle;
-                                        // }
-                                        ?>" type="text" class="form-control" name="cat_title">
-                                <?php }
-                                }
-                                ?>
-
-
-
-
-                            </div>
-                            <div class="form-group">
-                                <input class="btn btn-primary" type="submit" name="submit" value="Update">
-                            </div>
-                        </form>
+                                require_once "includes" . DIRECTORY_SEPARATOR . "editCategories.php";
+                            }
+                        ?>
                     </div>
 
+                        <!-- add cat form -->
                     <div class="col-xs-6">
                         <table class="table table-bordered table-hover">
                             <thead>
