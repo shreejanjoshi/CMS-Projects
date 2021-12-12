@@ -1,5 +1,7 @@
 <?php ob_start(); ?>
 <?php include "../includes/database.php"; ?>
+<?php include "function.php"; ?>
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 

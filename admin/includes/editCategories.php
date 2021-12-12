@@ -20,13 +20,12 @@
                 $catId = $row['cat_id'];
                 $catTitle = $row['cat_title'];
         ?>
-                <input value="
-                                        <?php
-                                        // echo $catTitle;
-                                        if(isset($catTitle)){
-                                            echo $catTitle;
-                                        }
-                                        ?>" type="text" class="form-control" name="cat_title">
+                <input value="<?php
+                                // echo $catTitle;
+                                if (isset($catTitle)) {
+                                    echo $catTitle;
+                                }
+                                ?>" type="text" class="form-control" name="cat_title">
         <?php }
         }
         ?>

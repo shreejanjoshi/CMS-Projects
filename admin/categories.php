@@ -22,22 +22,9 @@
 
                         <?php
                         // query to add cat
-                        if (isset($_POST['submit'])) {
-                            $catTitle = $_POST['cat_title'];
 
-                            if ($catTitle == "" || empty($catTitle)) {
-                                echo "This field should not be empty";
-                            } else {
-                                $query = "INSERT INTO categories(cat_title) ";
-                                $query .= "VALUE ('{$catTitle}') ";
+                        insert_cat();
 
-                                $createCategoryQuery = mysqli_query($connection, $query);
-
-                                if (!$createCategoryQuery) {
-                                    die("Query Failed " . mysqli_error($connection));
-                                }
-                            }
-                        }
                         ?>
                         <!-- form to add cat -->
                         <form action="" method="POST">
@@ -51,18 +38,18 @@
                         </form>
 
                         <?php
-                        //edit cat
-                            if(isset($_GET['edit'])){
-                                $editCatId = $_GET['edit'];
+                        //update and include query
+                        if (isset($_GET['edit'])) {
+                            $editCatId = $_GET['edit'];
 
-                                // include "includes/editCategories.php";
+                            include "includes/editCategories.php";
 
-                                require_once "includes" . DIRECTORY_SEPARATOR . "editCategories.php";
-                            }
+                            // require_once "includes" . DIRECTORY_SEPARATOR . "editCategories.php";
+                        }
                         ?>
                     </div>
 
-                        <!-- add cat form -->
+                    <!-- add cat form -->
                     <div class="col-xs-6">
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -74,36 +61,15 @@
                             <tbody>
                                 <?php
                                 //find all cat query to show cat
-                                $query = "SELECT * FROM categories";
-                                $selectAdminCategories = mysqli_query($connection, $query);
 
-                                if (!$selectAdminCategories) {
-                                    die("Query Error " . mysqli_error($connection));
-                                }
+                                findAllCat();
 
-                                while ($row = mysqli_fetch_assoc($selectAdminCategories)) {
-                                    $catId = $row['cat_id'];
-                                    $catTitle = $row['cat_title'];
-                                    echo "<tr>";
-                                    echo "<td>{$catId}</td>";
-                                    echo "<td>{$catTitle}</td>";
-                                    echo "<td><a href='categories.php?delete={$catId}'>Delete</a></td>";
-                                    echo "<td><a href='categories.php?edit={$catId}'>Edit</a></td>";
-                                    echo "</tr>";
-                                }
                                 ?>
 
                                 <?php
                                 // query to delete php
-                                if (isset($_GET['delete'])) {
-                                    $deleteCatId = $_GET['delete'];
+                                deleteCat();
 
-                                    $query = "DELETE FROM categories WHERE cat_id = {$deleteCatId} ";
-
-                                    $deleteQuery = mysqli_query($connection, $query);
-
-                                    header("Location: categories.php");
-                                }
                                 ?>
                             </tbody>
                         </table>
