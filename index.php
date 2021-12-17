@@ -24,6 +24,7 @@
             }
 
             while ($row = mysqli_fetch_assoc($selectAllPostsQuery)) {
+                $postId = $row['posts_id'];
                 $postTitle = $row['post_title'];
                 $postAuthor = $row['post_author'];
                 $postDate = $row['post_date'];
@@ -39,7 +40,7 @@
 
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#"><?php echo $postTitle; ?></a>
+                    <a href="post.php?pId=<?php echo $postId; ?>"><?php echo $postTitle; ?></a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php"><?php  echo $postAuthor; ?></a>

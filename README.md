@@ -42,3 +42,15 @@ Query Error You have an error in your SQL syntax; check the manual that correspo
 $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) "; =>forgot '' on first
 
 
+
+
+
+
+
+
+
+
+
+
+                
+
