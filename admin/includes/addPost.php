@@ -2,7 +2,7 @@
     if(isset($_POST['createPost'])){
         $postTitle =  mysqli_real_escape_string($connection, $_POST['title']);
         $author =  mysqli_real_escape_string($connection, $_POST['author']);
-        $postCategoryId =  mysqli_real_escape_string($connection, $_POST['postCategoryId']);
+        $postCategoryId =  mysqli_real_escape_string($connection, $_POST['postCategory']);
         $postStatus =  mysqli_real_escape_string($connection, $_POST['postStatus']);
 
         $postImage =  $_FILES['image']['name'];
@@ -35,8 +35,22 @@
 </div>
 
 <div class="form-group">
-    <label for="postCategory">Post Category Id</label>
-    <input type="text" class="form-control" name="postCategoryId">
+    <label for="postCategory">Post Category</label><br>
+    <select name="postCategory" id="">
+    <?php
+        $query = "SELECT * FROM categories";
+        $selectAdminCategories = mysqli_query($connection, $query);
+
+        confirm($selectAdminCategories);
+
+        while ($row = mysqli_fetch_assoc($selectAdminCategories)) {
+            $catId = $row['cat_id'];
+            $catTitle = $row['cat_title'];
+
+            echo "<option value='{$catId}'>{$catTitle}</option>";
+        }
+    ?>
+    </select>
 </div>
 
 <div class="form-group">
