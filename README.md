@@ -41,7 +41,7 @@ $postImageTemp =  $_FILES['image']['tmp_name'];
 Query Error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'portfolio, 'hi', 'shreejan' , now(), '', 'hi', 'html, css', 'draft' )' at line 1
 $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) "; =>forgot '' on first
 
-
+$postContent = substr($row['post_content'],0,50);
 
 
 
