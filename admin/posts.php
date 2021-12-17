@@ -28,11 +28,10 @@
 
                             switch($source) {
                                 case 'addPost';
-                                    echo "Nice gg";
                                     include "includes/addPost.php";
                                     break;
-                                case '34';
-                                    echo "Nice";
+                                case 'editPost';
+                                    include "includes/editPost.php";
                                     break;
                                 case '34';
                                     echo "Nice";
@@ -42,6 +41,8 @@
                                 include "includes/viewAllPost.php";
                                 break;
                             }
+
+                            
                         ?>
 
                     </div>

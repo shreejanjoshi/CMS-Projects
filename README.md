@@ -32,3 +32,13 @@ Today is 28/11/2021 and I finally complete the index.php of home page. Now its t
 I did little bit of refactoring so it will me to understand the code. Made a includes folder in Admin folder. Inside their is file called footer, navigation, header .php. 
 
 
+enctype="multipart/form-data"
+
+move_uploaded_file($postImageTemp, "../img/$postImage");
+
+$postImageTemp =  $_FILES['image']['tmp_name'];
+
+Query Error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'portfolio, 'hi', 'shreejan' , now(), '', 'hi', 'html, css', 'draft' )' at line 1
+$query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) "; =>forgot '' on first
+
+

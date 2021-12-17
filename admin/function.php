@@ -1,5 +1,12 @@
 <?php
 
+function confirm($result){
+    global $connection;
+    if(!$result){
+        die("Query Error " . mysqli_error($connection));
+    }
+}
+
 function insert_cat(){
     global $connection;
      // query to add cat
@@ -58,4 +65,6 @@ function deleteCat(){
         header("Location: categories.php");
     }
 }
+
+
 ?>
