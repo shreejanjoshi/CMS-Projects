@@ -44,6 +44,11 @@ $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$p
 $postContent = substr($row['post_content'],0,50);
 
 
+now i want to see comment 
+what i can do is make a new table named comments 
+
+
+
 
 
 

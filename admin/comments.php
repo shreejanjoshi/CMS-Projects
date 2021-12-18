@@ -19,27 +19,27 @@
                             <small>Author</small>
                         </h1>
 
-                        <?php 
-                            if(isset($_GET['source'])){
-                                $source = $_GET['source'];
-                            }else{
-                                $source= '';
-                            }
+                        <?php
+                        if (isset($_GET['source'])) {
+                            $source = $_GET['source'];
+                        } else {
+                            $source = '';
+                        }
 
-                            switch($source) {
-                                case 'addPost';
-                                    include "includes/addPost.php";
-                                    break;
-                                case 'editPost';
-                                    include "includes/editPost.php";
-                                    break;
-
-                                default:
-                                include "includes/viewAllPost.php";
+                        switch ($source) {
+                            case 'addPost';
+                                include "includes/addPost.php";
                                 break;
-                            }
+                            case 'editPost';
+                                include "includes/editPost.php";
+                                break;
 
-                            
+                            default:
+                                include "includes/viewAllComments.php";
+                                break;
+                        }
+
+
                         ?>
 
                     </div>
