@@ -23,6 +23,8 @@
                 die("Posts Query Error " . mysqli_error($connection));
             }
 
+            
+
             while ($row = mysqli_fetch_assoc($selectAllPostsQuery)) {
                 $postId = $row['posts_id'];
                 $postTitle = $row['post_title'];
@@ -30,7 +32,11 @@
                 $postDate = $row['post_date'];
                 $postImage = $row['post_image'];
                 $postContent = substr($row['post_content'],0,100);
+                $postStatus = $row['post_status'];
 
+                if($postStatus !== 'published'){
+                    echo "<h1>No Post Here Sorry</h1>";
+                }else{
         ?>
 
                 <h1 class="page-header">
@@ -54,7 +60,7 @@
 
                 <hr>
 
-        <?php } ?>
+        <?php } } ?>
 
         </div>
 
