@@ -71,8 +71,8 @@
 
 
             echo "<td>{$commentDate}</td>";
-            echo "<td><a href='posts.php?source=editPost&pId={$commentId}'>Approve</a></td>";
-            echo "<td><a href='posts.php?delete={$commentId}'>Unapprove</a></td>";
+            echo "<td><a href='comments.php?approve={$commentId}'>Approve</a></td>";
+            echo "<td><a href='comments.php?unapprove={$commentId}'>Unapprove</a></td>";
             echo "<td><a href='comments.php?delete={$commentId}'>Delete</a></td>";
             echo "</tr>";
         }
@@ -82,6 +82,26 @@
 </table>
 
 <?php
+
+if (isset($_GET['unapprove'])) {
+    $unapproveCommentId = $_GET['unapprove'];
+
+    $query = "UPDATE comments SET  comment_status = 'unapprove' WHERE comment_id = $unapproveCommentId";
+    $unapproveQuery = mysqli_query($connection, $query);
+
+    header("Location: comments.php");
+}
+
+if (isset($_GET['approve'])) {
+    $approveCommentId = $_GET['approve'];
+
+    $query = "UPDATE comments SET  comment_status = 'approve' WHERE comment_id = $approveCommentId";
+    $approveQuery = mysqli_query($connection, $query);
+
+    header("Location: comments.php");
+}
+
+
 if (isset($_GET['delete'])) {
     $deleteCommentId = $_GET['delete'];
 
