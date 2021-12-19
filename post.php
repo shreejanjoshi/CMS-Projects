@@ -81,6 +81,11 @@
                 if (!$createCommentQuery) {
                     die('Query Error ' . mysqli_error($connection));
                 }
+
+                $query ="UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+                $query .="WHERE posts_id = $postId";
+
+                $updateCommentCount = mysqli_query($connection, $query);
             }
             ?>
 

@@ -10,6 +10,7 @@
             <th>Date</th>
             <th>Approve</th>
             <th>Unapprove</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>

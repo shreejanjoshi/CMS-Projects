@@ -11,7 +11,7 @@
         $postTags =  mysqli_real_escape_string($connection, $_POST['postTags']);  
         $postContent =  mysqli_real_escape_string($connection, $_POST['postContent']);  
         $postDate = date('d-m-y');
-        $postCommentCount = 4;
+        // $postCommentCount = 4;
 
         move_uploaded_file($postImageTemp, "../img/$postImage");
 
