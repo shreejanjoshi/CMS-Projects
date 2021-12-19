@@ -86,7 +86,7 @@
 if (isset($_GET['unapprove'])) {
     $unapproveCommentId = $_GET['unapprove'];
 
-    $query = "UPDATE comments SET  comment_status = 'unapprove' WHERE comment_id = $unapproveCommentId";
+    $query = "UPDATE comments SET  comment_status = 'unapproved' WHERE comment_id = $unapproveCommentId";
     $unapproveQuery = mysqli_query($connection, $query);
 
     header("Location: comments.php");
@@ -95,7 +95,7 @@ if (isset($_GET['unapprove'])) {
 if (isset($_GET['approve'])) {
     $approveCommentId = $_GET['approve'];
 
-    $query = "UPDATE comments SET  comment_status = 'approve' WHERE comment_id = $approveCommentId";
+    $query = "UPDATE comments SET  comment_status = 'approved' WHERE comment_id = $approveCommentId";
     $approveQuery = mysqli_query($connection, $query);
 
     header("Location: comments.php");
