@@ -13,6 +13,7 @@
         </tr>
     </thead>
     <tbody>
+        
 
 
         <?php
@@ -63,7 +64,7 @@
                 $postId = $row['posts_id'];
                 $postTitle = $row['post_title'];
 
-                echo "<td>$postTitle </td>";
+                echo "<td><a href='../post.php?pId=$postId'>$postTitle</a></td>";
             }
 
 
