@@ -16,21 +16,22 @@
 
         <?php
 
-        $query = "SELECT * FROM comments";
-        $selectComments = mysqli_query($connection, $query);
+        $query = "SELECT * FROM users";
+        $selectUsers = mysqli_query($connection, $query);
 
-        if (!$selectComments) {
+        if (!$selectUsers) {
             die("Query Error " . mysqli_error($connection));
         }
 
-        while ($row = mysqli_fetch_assoc($selectComments)) {
-            $commentId = $row['comment_id'];
-            $commentPostId = $row['comment_post_id'];
-            $commentAuthor = $row['comment_author'];
-            $commentContent = $row['comment_content'];
-            $commentEmail = $row['comment_email'];
-            $commentStatus = $row['comment_status'];
-            $commentDate = $row['comment_date'];
+        while ($row = mysqli_fetch_assoc($selectUsers)) {
+            $userId = $row['user_id'];
+            $username = $row['username'];
+            $userPassword = $row['user_password'];
+            $userFirstname = $row['user_firstname'];
+            $userLastname = $row['user_lastname'];
+            $userEmail = $row['user_email'];
+            $userImage = $row['user_image'];
+            $userRole = $row['user_role'];
 
             echo "<tr>";
             echo "<td>{$commentId}</td>";
