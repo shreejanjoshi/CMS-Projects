@@ -70,6 +70,7 @@
 
             echo "<td><a href='users.php?changeToAdmin={$userId}'>Admin</a></td>";
             echo "<td><a href='users.php?changeToSub={$userId}'>Subscriber</a></td>";
+            echo "<td><a href='users.php?source=editUser&editUser={$userId}'>Edit</a></td>";
             echo "<td><a href='users.php?delete={$userId}'>Delete</a></td>";
             echo "</tr>";
         }
