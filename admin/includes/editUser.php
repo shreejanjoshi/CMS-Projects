@@ -93,6 +93,25 @@ if (isset($_POST['updatePost'])) {
     </div>
 
     <div class="form-group">
+        <label for="role">Role</label><br>
+        <select name="userRole" id="">
+            <?php
+            $query = "SELECT * FROM users";
+            $selectUserRole = mysqli_query($connection, $query);
+
+            confirm($selectUserRole);
+
+            while ($row = mysqli_fetch_assoc($selectUserRole)) {
+                $userId = $row['user_id'];
+                $userRole = $row['user_role'];
+
+                echo "<option value='{$userId}'>{$userRole}</option>";
+            }
+            ?>
+        </select>
+    </div>
+
+    <div class="form-group">
         <label for="title">Post Author</label>
         <input value="<?php echo $postAuthor; ?>" value="<?php echo $postAuthor; ?>" type="text" class="form-control" name="author">
     </div>

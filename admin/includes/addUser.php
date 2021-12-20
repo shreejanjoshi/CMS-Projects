@@ -1,27 +1,26 @@
 <?php
-if (isset($_POST['createPost'])) {
-    $postTitle =  mysqli_real_escape_string($connection, $_POST['title']);
-    $author =  mysqli_real_escape_string($connection, $_POST['author']);
-    $postCategoryId =  mysqli_real_escape_string($connection, $_POST['postCategory']);
-    $postStatus =  mysqli_real_escape_string($connection, $_POST['postStatus']);
+if (isset($_POST['createUser'])) {
+   echo $userFirstname =  mysqli_real_escape_string($connection, $_POST['userFirstname']);
+    $userLastname =  mysqli_real_escape_string($connection, $_POST['userLastname']);
+    $userRole =  mysqli_real_escape_string($connection, $_POST['userRole']);
 
-    $postImage =  $_FILES['image']['name'];
-    $postImageTemp = $_FILES['image']['tmp_name'];
+    // $postImage =  $_FILES['image']['name'];
+    // $postImageTemp = $_FILES['image']['tmp_name'];
 
-    $postTags =  mysqli_real_escape_string($connection, $_POST['postTags']);
-    $postContent =  mysqli_real_escape_string($connection, $_POST['postContent']);
-    $postDate = date('d-m-y');
-    // $postCommentCount = 4;
+    $username =  mysqli_real_escape_string($connection, $_POST['username']);
+    $userEmail =  mysqli_real_escape_string($connection, $_POST['userEmail']);
+    $userPassword =  mysqli_real_escape_string($connection, $_POST['userPassword']);
+    // $postDate = date('d-m-y');
 
-    move_uploaded_file($postImageTemp, "../img/$postImage");
+    // move_uploaded_file($postImageTemp, "../img/$postImage");
 
 
-    $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags,post_status) ";
-    $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) ";
+    // $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags,post_status) ";
+    // $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) ";
 
-    $createPostQuery = mysqli_query($connection, $query);
+    // $createPostQuery = mysqli_query($connection, $query);
 
-    confirm($createPostQuery);
+    // confirm($createPostQuery);
 }
 ?>
 
@@ -42,19 +41,9 @@ if (isset($_POST['createPost'])) {
     <div class="form-group">
         <label for="role">Role</label><br>
         <select name="userRole" id="">
-            <?php
-            $query = "SELECT * FROM users";
-            $selectUserRole = mysqli_query($connection, $query);
-
-            confirm($selectUserRole);
-
-            while ($row = mysqli_fetch_assoc($selectUserRole)) {
-                $userId = $row['user_id'];
-                $userRole = $row['user_role'];
-
-                echo "<option value='{$userId}'>{$userRole}</option>";
-            }
-            ?>
+            <option value="subscriber">select option</option>
+            <option value="admin">admin</option>
+            <option value="subscriber">subscriber</option>
         </select>
     </div>
 
