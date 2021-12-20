@@ -68,9 +68,9 @@
             // }
 
 
-            echo "<td><a href='comments.php?approve='>Approve</a></td>";
-            echo "<td><a href='comments.php?unapprove='>Unapprove</a></td>";
-            echo "<td><a href='comments.php?delete='>Delete</a></td>";
+            echo "<td><a href='users.php?changeToAdmin={$userId}'>Admin</a></td>";
+            echo "<td><a href='users.php?changeToSub={$userId}'>Subscriber</a></td>";
+            echo "<td><a href='users.php?delete={$userId}'>Delete</a></td>";
             echo "</tr>";
         }
 
@@ -80,31 +80,31 @@
 
 <?php
 
-if (isset($_GET['unapprove'])) {
-    $unapproveCommentId = $_GET['unapprove'];
+if (isset($_GET['changeToAdmin'])) {
+    $changeToAdminId = $_GET['changeToAdmin'];
 
-    $query = "UPDATE comments SET  comment_status = 'unapproved' WHERE comment_id = $unapproveCommentId";
-    $unapproveQuery = mysqli_query($connection, $query);
+    $query = "UPDATE users SET  user_role = 'admin' WHERE user_id = $changeToAdminId";
+    $changeToAdminQuery = mysqli_query($connection, $query);
 
-    header("Location: comments.php");
+    header("Location: users.php");
 }
 
-if (isset($_GET['approve'])) {
-    $approveCommentId = $_GET['approve'];
+if (isset($_GET['changeToSub'])) {
+    $changeToSubId = $_GET['changeToSub'];
 
-    $query = "UPDATE comments SET  comment_status = 'approved' WHERE comment_id = $approveCommentId";
-    $approveQuery = mysqli_query($connection, $query);
+    $query = "UPDATE users SET  user_role = 'subscriber' WHERE user_id = $changeToSubId";
+    $changeToSubQuery = mysqli_query($connection, $query);
 
-    header("Location: comments.php");
+    header("Location: users.php");
 }
 
 
 if (isset($_GET['delete'])) {
-    $deleteCommentId = $_GET['delete'];
+    $deleteUserId = $_GET['delete'];
 
-    $query = "DELETE FROM comments WHERE comment_id = {$deleteCommentId} ";
+    $query = "DELETE FROM users WHERE user_id = {$userId} ";
     $deleteQuery = mysqli_query($connection, $query);
 
-    header("Location: comments.php");
+    header("Location: users.php");
 }
 ?>

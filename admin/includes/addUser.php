@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['createUser'])) {
-   echo $userFirstname =  mysqli_real_escape_string($connection, $_POST['userFirstname']);
+    $userFirstname =  mysqli_real_escape_string($connection, $_POST['userFirstname']);
     $userLastname =  mysqli_real_escape_string($connection, $_POST['userLastname']);
     $userRole =  mysqli_real_escape_string($connection, $_POST['userRole']);
 
