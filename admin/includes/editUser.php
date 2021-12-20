@@ -64,9 +64,14 @@ if (isset($_POST['editUser'])) {
     <div class="form-group">
         <label for="role">Role</label><br>
         <select name="userRole" id="">
-            <option value="subscriber">select option</option>
-            <option value="admin">admin</option>
-            <option value="subscriber">subscriber</option>
+        <option value="subscriber"><?php echo $userRole; ?></option>
+        <?php
+            if($userRole == 'admin'){
+            echo "<option value='subscriber'>subscriber</option>";
+            }else{
+                echo "<option value='admin'>admin</option>";
+            }
+        ?>
         </select>
     </div>
 
