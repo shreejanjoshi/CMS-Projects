@@ -15,12 +15,12 @@ if (isset($_POST['createUser'])) {
     // move_uploaded_file($postImageTemp, "../img/$postImage");
 
 
-    // $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags,post_status) ";
-    // $query .= "VALUES('{$postCategoryId}', '{$postTitle}', '{$author}' , now(), '{$postImage}', '{$postContent}', '{$postTags}', '{$postStatus}' ) ";
+    $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password) ";
+    $query .= "VALUES('{$userFirstname}', '{$userLastname}', '{$userRole}', '{$username}', '{$userEmail}', '{$userPassword}') ";
 
-    // $createPostQuery = mysqli_query($connection, $query);
+    $createUserQuery = mysqli_query($connection, $query);
 
-    // confirm($createPostQuery);
+    confirm($createUserQuery);
 }
 ?>
 
