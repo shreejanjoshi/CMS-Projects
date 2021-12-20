@@ -1,8 +1,25 @@
 <?php
 
-if(isset($_GET['edit'])){
-    $userId = $_GET['edit'];
+if(isset($_GET['editUser'])){
+    $userId = $_GET['editUser'];
 
+    $query = "SELECT * FROM users WHERE user_id = $userId";
+    $selectUsers = mysqli_query($connection, $query);
+
+        if (!$selectUsers) {
+            die("Query Error " . mysqli_error($connection));
+        }
+
+        while ($row = mysqli_fetch_assoc($selectUsers)) {
+            $userId = $row['user_id'];
+            $username = $row['username'];
+            $userPassword = $row['user_password'];
+            $userFirstname = $row['user_firstname'];
+            $userLastname = $row['user_lastname'];
+            $userEmail = $row['user_email'];
+            $userImage = $row['user_image'];
+            $userRole = $row['user_role'];
+        }
 }
 
 if (isset($_POST['editUser'])) {
@@ -36,12 +53,12 @@ if (isset($_POST['editUser'])) {
 
     <div class="form-group">
         <label for="Firstname">Firstname</label>
-        <input type="text" class="form-control" name="userFirstname">
+        <input type="text" class="form-control" name="userFirstname" value="<?php echo $userFirstname; ?>">
     </div>
 
     <div class="form-group">
         <label for="Lastname">Lastname</label>
-        <input type="text" class="form-control" name="userLastname">
+        <input type="text" class="form-control" name="userLastname" value="<?php echo $userLastname; ?>">
     </div>
 
     <div class="form-group">
@@ -60,17 +77,17 @@ if (isset($_POST['editUser'])) {
 
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="username">
+        <input type="text" class="form-control" name="username" value="<?php echo $username; ?>">
     </div>
 
     <div class="form-group">
         <label for="Email">Email</label>
-        <input type="text" class="form-control" name="userEmail">
+        <input type="text" class="form-control" name="userEmail" value="<?php echo $userEmail; ?>">
     </div>
 
     <div class="form-group">
         <label for="Password">Password</label>
-        <input type="password" class="form-control" name="userPassword">
+        <input type="password" class="form-control" name="userPassword" value="<?php echo $userPassword; ?>">
     </div>
 
     <div>
